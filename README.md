@@ -14,11 +14,20 @@ Also important game stats are weighted and tallied including the national and co
 
 ## Getting Started
 
--This project uses a living document that is converted into an API endpoint with sheetDB.io
--If you choose to run this app locally with your own https://sheetdb.io/ spread sheet, craete a config file and enter your own sheetDB api key like so
+--This project uses a living document that is converted into an API endpoint with sheetDB.io
+
+##
+
+-If you choose to run this app locally with your own https://sheetdb.io/ spread sheet, create a config.js file and enter your own sheetDB.io api key like so
+
+##
+
 `var config = {
 MY_KEY: "<YourApiKey>",
 };`
+
+##
+
 Then see js files to see how the api key is entered into the api url
 
 ### Dependencies
