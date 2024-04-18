@@ -1,0 +1,63 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel = "stylesheet" href = css/styles.css> <link rel = "stylesheet"
+    href = css/normalize.css>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>March Madness Calculator</h1>
+
+    <h2>Ken Pomeroy Formula</h2>
+    <div class="kenPomEntries">
+      <p>Team 1</p>
+      <input type="text" id="kenPom1" />
+      <p>Team 2</p>
+      <input type="text" id="kenPom2" />
+      <button id="buttonKenPom">KenPom Result</button>
+    </div>
+
+    <h3>Kenpom Calculation</h3>
+    <div id="kenPomTeam1Pos"></div>
+    <div id="kenPomTeam2Pos"></div>
+    <div id="kenPomTeam1Score"></div>
+    <div id="kenPomTeam2Score"></div>
+
+    <h2>Brian Kidd's Team Comparisons</h2>
+    <div class="brianKiddEntries">
+      <p>Team 1</p>
+      <input type="text" id="brianKidd1" />
+      <p>Team 2</p>
+      <input type="text" id="brianKidd2" />
+      <button id="buttonBrianKidd">Brian Kidd Result</button>
+    </div>
+
+    <h3>Brian Kidd Statistics Breakdown</h3>
+    <div class="statBreakdown">
+      <div id="teamNames"></div>
+      <div id="brianKiddNationalRank"></div>
+      <div id="brianKiddConferenceRank"></div>
+      <div id="brianKiddDefensiveRating"></div>
+      <div id="brianKiddOffensiveRating"></div>
+      <div id="brianKiddScheduleDifficulty"></div>
+      <div id="brianKiddTeam1Points"></div>
+      <div id="brianKiddOppPoints"></div>
+      <div id="brianKiddRebounds"></div>
+      <div id="brianKiddTurnovers"></div>
+      <div id="brianKiddOppTurnovers"></div>
+      <div id="brianKiddThreesPerGame"></div>
+      <div id="brianKiddThreePointPercentage"></div>
+      <div id="brianKiddOppThreesPerGame"></div>
+      <div id="brianKiddTwoPointPercentage"></div>
+      <div id="brianKiddFreeThrowPercentage"></div>
+      <div id="statDiff">
+        <div id="totalStatDifferential"></div>
+      </div>
+    </div>
+    <script type="text/javascript" src="js/config.js"></script>
+    <script src="js/ppp.js"></script>
+    <script src="js/bks-calc-formula.js"></script>
+  </body>
+</html>

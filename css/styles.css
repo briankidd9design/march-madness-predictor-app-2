@@ -1,0 +1,36 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.kenPomEntries {
+  display: flex;
+  flex-direction: row;
+}
+.brianKiddEntries {
+  display: flex;
+  flex-direction: row;
+}
+
+.statBreakdown div:nth-child(odd) {
+  background-color: black;
+  color: white;
+}
+
+#statDiff {
+  background-color: black;
+  color: white;
+}
+
+#kenPom1,
+#kenpom2,
+#brianKidd1,
+#brianKidd2 {
+  margin: 10px;
+}
