@@ -3,59 +3,114 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <link rel = "stylesheet" href = css/styles.css> <link rel = "stylesheet"
     href = css/normalize.css>
     <title>Document</title>
   </head>
   <body>
-    <h1>March Madness Calculator</h1>
-
-    <h2>Ken Pomeroy Formula</h2>
-    <div class="kenPomEntries">
-      <p>Team 1</p>
-      <input type="text" id="kenPom1" />
-      <p>Team 2</p>
-      <input type="text" id="kenPom2" />
-      <button id="buttonKenPom">KenPom Result</button>
-    </div>
-
-    <h3>Kenpom Calculation</h3>
-    <div id="kenPomTeam1Pos"></div>
-    <div id="kenPomTeam2Pos"></div>
-    <div id="kenPomTeam1Score"></div>
-    <div id="kenPomTeam2Score"></div>
-
-    <h2>Brian Kidd's Team Comparisons</h2>
-    <div class="brianKiddEntries">
-      <p>Team 1</p>
-      <input type="text" id="brianKidd1" />
-      <p>Team 2</p>
-      <input type="text" id="brianKidd2" />
-      <button id="buttonBrianKidd">Brian Kidd Result</button>
-    </div>
-
-    <h3>Brian Kidd Statistics Breakdown</h3>
-    <div class="statBreakdown">
-      <div id="teamNames"></div>
-      <div id="brianKiddNationalRank"></div>
-      <div id="brianKiddConferenceRank"></div>
-      <div id="brianKiddDefensiveRating"></div>
-      <div id="brianKiddOffensiveRating"></div>
-      <div id="brianKiddScheduleDifficulty"></div>
-      <div id="brianKiddTeam1Points"></div>
-      <div id="brianKiddOppPoints"></div>
-      <div id="brianKiddRebounds"></div>
-      <div id="brianKiddTurnovers"></div>
-      <div id="brianKiddOppTurnovers"></div>
-      <div id="brianKiddThreesPerGame"></div>
-      <div id="brianKiddThreePointPercentage"></div>
-      <div id="brianKiddOppThreesPerGame"></div>
-      <div id="brianKiddTwoPointPercentage"></div>
-      <div id="brianKiddFreeThrowPercentage"></div>
-      <div id="statDiff">
-        <div id="totalStatDifferential"></div>
+    <nav>
+      <ul>
+        <li><a id="connect" href="connect.html">Contact</a></li>
+        <li><a href="data.html">About</a></li>
+        <li><a href="about.html">Data</a></li>
+        <li><a class="active" href="index">Home</a></li>
+      </ul>
+    </nav>
+    <div class="container">
+      <div class="area-1">
+        <div id="siteNameContainer">
+          <h1 id="siteTitle">NCAA Basketball Game Predictor</h1>
+        </div>
+        <div class="underline"></div>
+        <h5 id="contactMeTitle">
+          Contact Me: <br />Brian Kidd: theholisticprogrammer@gmail.com
+        </h5>
+        <h2 id="eachTeamHeader">Each Team</h2>
+        <div class="kenPomEntries">
+          <input placeholder="Enter team one" type="text" id="kenPom1" />
+          <input placeholder="Enter team two" type="text" id="kenPom2" />
+          <button id="buttonKenPom">Calculate</button>
+        </div>
+        <div id="scorePrediction">
+          <h3>Score Prediction Result</h3>
+          <div id="kenPomTeam1Pos"></div>
+          <div id="kenPomTeam2Pos"></div>
+          <div id="kenPomTeam1Score"></div>
+          <div id="kenPomTeam2Score"></div>
+        </div>
+        <div id="predictionLine"></div>
+        <!-- end area-1 -->
       </div>
+      <div class="area-2">
+        <div class="area-2-container">
+          <div id="compareStatsHeaderContainer">
+            <h2 id="compareStatsHeader">Compare Stats</h2>
+          </div>
+          <div class="brianKiddEntries">
+            <input placeholder="Enter team one" type="text" id="brianKidd1" />
+            <input placeholder="Enter team two" type="text" id="brianKidd2" />
+            <button id="buttonBrianKidd">Calculate</button>
+          </div>
+          <div class="statBreakdown">
+            <h3>Statistics Comparison</h3>
+            <div id="teamNames"></div>
+            <div id="brianKiddNationalRank"></div>
+            <div id="brianKiddConferenceRank"></div>
+            <div id="brianKiddDefensiveRating"></div>
+            <div id="brianKiddOffensiveRating"></div>
+            <div id="brianKiddScheduleDifficulty"></div>
+            <div id="brianKiddTeam1Points"></div>
+            <div id="brianKiddOppPoints"></div>
+            <div id="brianKiddRebounds"></div>
+            <div id="brianKiddTurnovers"></div>
+            <div id="brianKiddOppTurnovers"></div>
+            <div id="brianKiddThreesPerGame"></div>
+            <div id="brianKiddThreePointPercentage"></div>
+            <div id="brianKiddOppThreesPerGame"></div>
+            <div id="brianKiddTwoPointPercentage"></div>
+            <div id="brianKiddFreeThrowPercentage"></div>
+            <div id="statDiff">
+              <div id="totalStatDifferential"></div>
+            </div>
+          </div>
+          <!-- end of area-2-container -->
+        </div>
+        <!-- end area-2 -->
+      </div>
+
+      <!-- end of site container -->
     </div>
+    <footer>
+      <div class="footer-left">
+        <a href="https://briankiddmedia.com" target="_blank"
+          >briankiddmedia.com</a
+        >
+        &nbsp | &nbsp <span id="copyrightYear"></span>Brian Kidd | All Rights
+        Reserved &copy
+      </div>
+      <div class="footer-right">
+        Contact: theholisticprogrammer@gmail.com
+        <a
+          href="https://www.facebook.com/holisticprogrammer"
+          target="_blank"
+          class="fa fa-facebook"
+        ></a>
+      </div>
+    </footer>
     <script type="text/javascript" src="js/config.js"></script>
     <script src="js/ppp.js"></script>
     <script src="js/bks-calc-formula.js"></script>

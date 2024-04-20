@@ -123,7 +123,7 @@ function compareTeams(data, kenPomTeam1, kenPomTeam2) {
     100;
   // console.log(ptsPerOneHundred);
   let totalPoints = parseFloat(ptsPerOneHundred / 100) * parseFloat(poss);
-  kenPomTeam1Score.innerHTML = `${T1.name} will score ${totalPoints}`;
+  kenPomTeam1Score.innerHTML = `${T1.name} will score ${totalPoints} points`;
 
   //Team 2 total points
   let ptsPerOneHundred2 =
@@ -132,5 +132,7 @@ function compareTeams(data, kenPomTeam1, kenPomTeam2) {
     100;
   // console.log(`ptsPerOneHundred2 ${ptsPerOneHundred2}`);
   let totalPoints2 = parseFloat(ptsPerOneHundred2 / 100) * parseFloat(poss2);
-  kenPomTeam2Score.innerHTML = `${T2.name} will score ${totalPoints2}`;
+  kenPomTeam2Score.innerHTML = `${T2.name} will score ${totalPoints2} points`;
 }
+
+document.querySelector("#copyrightYear").innerText = new Date().getFullYear();
