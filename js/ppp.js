@@ -18,6 +18,7 @@ function displayData() {
       if (!response.ok) {
       }
       getUserInput(data);
+      // finalUserInput(data);
     } catch (error) {
       console.log("there was an arror getting the data");
     }
@@ -47,17 +48,36 @@ class Team2 {
     this.defensiveRating = defRating;
   }
 }
+
 // Get user input data and then pass it to the compareTeams function
 function getUserInput(data) {
   let kenPomTeam1 = document.getElementById("kenPom1").value;
   let kenPomTeam2 = document.getElementById("kenPom2").value;
+  finalUserInput(data, kenPomTeam1, kenPomTeam2);
+}
+// this function uses a regular expression to ensure that the letter of each user input will be capitalized so it mataches the JSON data capitalization of each team
+function finalUserInput(data, kenPomTeam1Input, kenPomTeam2Input) {
+  let kenPomTeam1 = kenPomTeam1Input.replace(/\w\S*/g, function (txt) {
+    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+  });
+  let kenPomTeam2 = kenPomTeam2Input.replace(/\w\S*/g, function (txt) {
+    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+  });
+  if (kenPomTeam1 === "Unc") {
+    kenPomTeam1 = "North Carolina";
+  } else if (kenPomTeam2 === "Unc") {
+    kenPomTeam2 = "North Carolina";
+  } else if (kenPomTeam1 === "North Carolina State") {
+    kenPomTeam1 = "NC State";
+  } else if (kenPomTeam2 === "North Carolina State") {
+    kenPomTeam2 = "NC State";
+  }
   compareTeams(data, kenPomTeam1, kenPomTeam2);
 }
 
 let kenPomButton = document.getElementById("buttonKenPom");
 kenPomButton.addEventListener("click", displayData);
 
-//
 function compareTeams(data, kenPomTeam1, kenPomTeam2) {
   // DOM elements
   let kenPomTeam1Pos = document.getElementById("kenPomTeam1Pos");
