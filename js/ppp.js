@@ -1,4 +1,3 @@
-// import { showKenPomResult } from "./main-script.js";
 //POSS = FGA - ORB + TO + (0.475*FTA)
 // points per one hundred posessions
 // let ptsPerOneHundred2 =
@@ -18,9 +17,8 @@ function displayData() {
       if (!response.ok) {
       }
       getUserInput(data);
-      // finalUserInput(data);
     } catch (error) {
-      console.log("there was an arror getting the data");
+      console.log("there was an error getting the data");
     }
   }
   kenPomFormulaData();
@@ -53,6 +51,7 @@ class Team2 {
 function getUserInput(data) {
   let kenPomTeam1 = document.getElementById("kenPom1").value;
   let kenPomTeam2 = document.getElementById("kenPom2").value;
+  document.getElementById("undefinedPrediction").innerHTML = "";
   finalUserInput(data, kenPomTeam1, kenPomTeam2);
 }
 // this function uses a regular expression to ensure that the letter of each user input will be capitalized so it mataches the JSON data capitalization of each team
@@ -71,6 +70,18 @@ function finalUserInput(data, kenPomTeam1Input, kenPomTeam2Input) {
     kenPomTeam1 = "NC State";
   } else if (kenPomTeam2 === "North Carolina State") {
     kenPomTeam2 = "NC State";
+  } else if (kenPomTeam1 === "Texas A&m") {
+    kenPomTeam1 = "Texas A&M";
+  } else if (kenPomTeam2 === "Texas A&m") {
+    kenPomTeam2 = "Texas A&M";
+  } else if (kenPomTeam1 === "Usc") {
+    kenPomTeam1 = "USC";
+  } else if (kenPomTeam2 === "Usc") {
+    kenPomTeam2 = "USC";
+  } else if (kenPomTeam1 === "Ucla") {
+    kenPomTeam1 = "UCLA";
+  } else if (kenPomTeam2 === "Ucla") {
+    kenPomTeam2 = "UCLA";
   }
   compareTeams(data, kenPomTeam1, kenPomTeam2);
 }
@@ -96,6 +107,7 @@ function compareTeams(data, kenPomTeam1, kenPomTeam2) {
       kenPomTeam2 = data[i];
     }
   }
+
   //Team 1
   let T1 = new Team1(
     kenPomTeam1.team_name,
@@ -116,6 +128,18 @@ function compareTeams(data, kenPomTeam1, kenPomTeam2) {
     kenPomTeam2.offsv_rating,
     kenPomTeam2.def_rating
   );
+
+  // check for user input that is not in the data and returns undefined.
+  if (kenPomTeam1.team_name === undefined) {
+    document.getElementById(
+      "undefinedPrediction"
+    ).innerHTML = `Your input ${kenPomTeam1} is not found. Please check your spelling and try again. You can also click on the data page of this site to see what teams are available to compare.`;
+  }
+  if (kenPomTeam2.team_name === undefined) {
+    document.getElementById(
+      "undefinedPrediction"
+    ).innerHTML = `Your input ${kenPomTeam2} is not found. Please check your spelling and try again. You can also click on the data page of this site to see what teams are available to compare.`;
+  }
   // Push both results to an array and then take the data out of that array
 
   //THE FORMULA

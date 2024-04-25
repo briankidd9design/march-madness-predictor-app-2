@@ -1,3 +1,4 @@
+var mykey = config.MY_KEY;
 const apiEndPoint = `https://sheetdb.io/api/v1/${mykey}`;
 
 // Fetching the data
@@ -12,12 +13,12 @@ function displayData() {
       }
       getUserInputBK(data);
     } catch (error) {
-      console.log("there was an arror getting the data");
+      console.log("there was an error getting the data");
     }
   }
   kenPomFormulaData();
 }
-// Team Classes
+// Team Classes and Constructors
 class Team01 {
   constructor(
     name,
@@ -25,6 +26,7 @@ class Team01 {
     cfrk,
     ppg,
     oppg,
+    orb,
     rbs,
     trnovs,
     optrnovs,
@@ -48,6 +50,7 @@ class Team01 {
       (this.confrank = cfrk),
       (this.pointPerG = ppg),
       (this.oponPpg = oppg),
+      (this.offensiveRebounds = orb),
       (this.rebounds = rbs),
       (this.turnovers = trnovs),
       (this.opTurnovers = optrnovs),
@@ -74,6 +77,7 @@ class Team02 {
     cfrk,
     ppg,
     oppg,
+    orb,
     rbs,
     trnovs,
     optrnovs,
@@ -97,6 +101,7 @@ class Team02 {
       (this.confrank = cfrk),
       (this.pointPerG = ppg),
       (this.oponPpg = oppg),
+      (this.offensiveRebounds = orb),
       (this.rebounds = rbs),
       (this.turnovers = trnovs),
       (this.opTurnovers = optrnovs),
@@ -120,6 +125,38 @@ class Team02 {
 function getUserInputBK(data) {
   let brianKidd1 = document.getElementById("brianKidd1").value;
   let brianKidd2 = document.getElementById("brianKidd2").value;
+  document.getElementById("undefinedCompare").innerHTML = "";
+  finalUserInputBK(data, brianKidd1, brianKidd2);
+}
+// this function uses a regular expression to ensure that the letter of each user input will be capitalized so it mataches the JSON data capitalization of each team
+function finalUserInputBK(data, brianKidd1Input, brianKidd2Input) {
+  let brianKidd1 = brianKidd1Input.replace(/\w\S*/g, function (txt) {
+    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+  });
+  let brianKidd2 = brianKidd2Input.replace(/\w\S*/g, function (txt) {
+    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+  });
+  if (brianKidd1 === "Unc") {
+    brianKidd1 = "North Carolina";
+  } else if (brianKidd2 === "Unc") {
+    brianKidd2 = "North Carolina";
+  } else if (brianKidd1 === "North Carolina State") {
+    brianKidd1 = "NC State";
+  } else if (brianKidd2 === "North Carolina State") {
+    brianKidd2 = "NC State";
+  } else if (brianKidd1 === "Texas A&m") {
+    brianKidd1 = "Texas A&M";
+  } else if (brianKidd2 === "Texas A&m") {
+    brianKidd2 = "Texas A&M";
+  } else if (brianKidd1 === "Usc") {
+    brianKidd1 = "USC";
+  } else if (brianKidd2 === "Usc") {
+    brianKidd2 = "USC";
+  } else if (brianKidd1 === "Ucla") {
+    brianKidd1 = "UCLA";
+  } else if (brianKidd2 === "Ucla") {
+    brianKidd2 = "UCLA";
+  }
   compareTeamsBK(data, brianKidd1, brianKidd2);
 }
 // Button will initiate API call for basketball stats API data
@@ -140,6 +177,7 @@ function compareTeamsBK(data, brianKidd1, brianKidd2) {
   let bkPoints = document.getElementById("brianKiddTeam1Points");
   let bkOppPoints = document.getElementById("brianKiddOppPoints");
   let bkRebounds = document.getElementById("brianKiddRebounds");
+  let bkOffRebounds = document.getElementById("brianKiddOffRebounds");
   let bkTurnovers = document.getElementById("brianKiddTurnovers");
   let bkOppTurnovers = document.getElementById("brianKiddOppTurnovers");
   let bkThreesPerGame = document.getElementById("brianKiddThreesPerGame");
@@ -162,126 +200,16 @@ function compareTeamsBK(data, brianKidd1, brianKidd2) {
       brianKidd2 = data[i];
     }
   }
-  //   //Teams
-  //   let houston = data[0];
-  //   let longwood = data[1];
-  //   let nebraska = data[2];
-  //   let texas_a_m = data[3];
-  //   let wisconsin = data[4];
-  //   let james_madison = data[5];
-  //   let duke = data[6];
-  //   let vermont = data[7];
-  //   let texas_tech = data[8];
-  //   let north_carolina_state = data[9];
-  //   let kentucky = data[10];
-  //   let oakland = data[11];
-  //   let florida = data[12];
-  //   let colorado = data[13];
-  //   let marquette = data[14];
-  //   // let kentucky = data[15];
-  //   let western_kentucky = data[15];
-  //   let purdue = data[16];
-  //   let montana_state = data[17];
-  //   let utah_state = data[18];
-  //   let tcu = data[19];
-  //   // let duke = data[20];
-  //   let gonzaga = data[20];
-  //   let mcneese = data[21];
-  //   let kansas = data[22];
-  //   let samford = data[23];
-  //   // let south_carolina = data[24];
-  //   let oregon = data[25];
-  //   // let colorado_state = data[23];
-  //   // let murray_state = data[24];
-  //   // let kansas = data[23];
-  //   // let samford = data[24];
-  //   // let houston = data[25];
-  //   // let arkansas = data[26];
-  //   // let texas_tech = data[27];
-  //   // let providence = data[28];
-  //   let creighton = data[26];
-  //   let akron = data[27];
-  //   // let tennessee = data[29];
-  //   // let villanova = data[30];
-  //   let texas = data[28];
-  //   let colorado_state = data[29];
-  //   // let auburn = data[31];
-  //   // let cal_state_fullerton = data[32];
-  //   // let auburn = data[31];
-  //   let tennessee = data[30];
-  //   let saint_peters = data[31];
-  //   let uconn = data[32];
-  //   let fau = data[33];
-  //   let northwestern = data[34];
-  //   // let tcu = data[34];
-  //   // let seton_hall = data[35];
-  //   // let marquette = data[36];
-  //   let san_diego_state = data[35];
-  //   let uab = data[36];
-  //   let auburn = data[37];
-  //   let yale = data[38];
-  //   let byu = data[39];
-  //   let duquesne = data[40];
-  //   let illinois = data[41];
-  //   let morehead_state = data[42];
-  //   let washington_state = data[43];
-  //   let drake = data[44];
-  //   let iowa_state = data[45];
-  //   let saint_marys = data[47];
-  //   let baylor = data[49];
-  //   let arizona = data[50];
-  //   let alabama = data[51];
-  //   // let auburn = data[37];
-  //   // let san_francisco = data[39];
-  //   // let uab = data[40];
-  //   // let south_dakota_state = data[41];
-  //   // let chattanooga = data[42];
-  //   // let new_mexico_state = data[43];
-  //   // let vermont = data[44];
-  //   // let alabama = data[45];
-  //   // let lsu = data[46];
-  //   // let virginia_tech = data[47];
-  //   // let indiana = data[48];
-  //   // let loyola_chicago = data[49];
-  //   // let montana_state = data[50];
-  //   // let longwood = data[51];
-  //   // let st_peters = data[52];
-  //   // let akron = data[53];
-  //   // let boise_state = data[54];
-  //   // let miami = data[55];
-  //   // let creighton = data[56];
-  //   // let davidson = data[57];
-  //   // let iowa_state = data[58];
-  //   // let colgate = data[59];
-  //   let delaware = data[60];
-  //   let georgia_state = data[61];
-  //   let jacksonville_state = data[62];
-  //   let wyoming = data[63];
-  //   // let drake = data[64];
-  //   let kent_state = data[65];
-  //   // let texas_a_m = data[66];
-  //   let maryland = data[67];
-  //   let west_virgina = data[68];
-  //   let charleston = data[69];
-  //   let furman = data[70];
-  //   let virginia = data[71];
-  //   // let north_carolina_state = data[72];
-  //   let missouri = data[73];
-  //   // let utah_state = data[74];
-  //   let kansas_state = data[75];
-  //   let penn_state = data[76];
-  //   let new_mexico = data[77];
-  //   let clemson = data[78];
-  //   let south_carolina = data[79];
-  //   let iowa = data[80];
-
+  // Teams
   //Team 1
+  // name your constructor and instantiate it. make sure that the object property name matches that in the JSON data
   let T1 = new Team01(
     brianKidd1.team_name,
     brianKidd1.nat_rank,
     brianKidd1.conf_rank,
     brianKidd1.ppg_avg,
     brianKidd1.op_ppg_avg,
+    brianKidd1.orbs,
     brianKidd1.rbs,
     brianKidd1.trnovs,
     brianKidd1.optrnovs,
@@ -307,6 +235,7 @@ function compareTeamsBK(data, brianKidd1, brianKidd2) {
     brianKidd2.conf_rank,
     brianKidd2.ppg_avg,
     brianKidd2.op_ppg_avg,
+    brianKidd2.orbs,
     brianKidd2.rbs,
     brianKidd2.trnovs,
     brianKidd2.optrnovs,
@@ -325,6 +254,17 @@ function compareTeamsBK(data, brianKidd1, brianKidd2) {
     brianKidd2.injuries,
     brianKidd2.eye_test
   );
+  // check for user input that is not in the data and returns undefined.
+  if (brianKidd1.team_name === undefined) {
+    document.getElementById(
+      "undefinedCompare"
+    ).innerHTML = `Your input ${brianKidd1} is not found. Please check your spelling and try again. You can also click on the data page of this site to see what teams are available to compare.`;
+  }
+  if (brianKidd2.team_name === undefined) {
+    document.getElementById(
+      "undefinedCompare"
+    ).innerHTML = `Your input ${brianKidd2} is not found. Please check your spelling and try again. You can also click on the data page of this site to see what teams are available to compare.`;
+  }
 
   //////////////////////////////////////////////////////////////////////
 
@@ -433,6 +373,22 @@ function compareTeamsBK(data, brianKidd1, brianKidd2) {
   let rbndsDiff = Math.abs(T1.rebounds - T2.rebounds);
 
   bkRebounds.innerHTML = `${T1.name} get ${T1.rebounds} rebounds per game and ${T2.name} get ${T2.rebounds} rebounds per game. The Differential is ${rbndsDiff}`;
+
+  //team total offensive rebounds per game
+  if (parseFloat(T1.offensiveRebounds) > parseFloat(T2.offensiveRebounds)) {
+    countTeam1++;
+  } else if (
+    parseFloat(T1.offensiveRebounds) == parseFloat(T2.offensiveRebounds)
+  ) {
+    countTeam1 = countTeam1 + 0;
+    countTeam2 = countTeam2 + 0;
+  } else {
+    countTeam2++;
+  }
+  // Offensive Rebounds Diff
+  let offRbndsDiff = Math.abs(T1.offensiveRebounds - T2.offensiveRebounds);
+
+  bkOffRebounds.innerHTML = `${T1.name} get ${T1.offensiveRebounds} offensive rebounds per game and ${T2.name} get ${T2.offensiveRebounds} offensive rebounds per game. The Differential is ${offRbndsDiff}`;
 
   //team turnovers per game
   if (parseFloat(T1.turnovers) > parseFloat(T2.turnovers)) {

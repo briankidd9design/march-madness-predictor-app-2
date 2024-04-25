@@ -22,8 +22,9 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="page-container">
-      <div class="content-wrap">
+    <div class="flex-site-wrapper">
+      <div class="page-container">
+        <!-- <div class="content-wrap"> -->
         <div class="area-1">
           <header>
             <nav>
@@ -45,14 +46,16 @@
           </header>
           <div id="eachTeamContainer">
             <h2 id="eachTeamHeader">Each Team</h2>
-            <div class="kenPomEntries">
+            <div id="kenPomEntries">
               <input placeholder="Enter team one" type="text" id="kenPom1" />
               <input placeholder="Enter team two" type="text" id="kenPom2" />
               <button id="buttonKenPom">Calculate</button>
             </div>
+            <div class="input-error">
+              <div id="undefinedPrediction"></div>
+            </div>
             <div id="scorePrediction">
               <h3>Score Prediction Result</h3>
-              <div id="undefined"></div>
               <div id="kenPomTeam1Pos"></div>
               <div id="kenPomTeam2Pos"></div>
               <div id="kenPomTeam1Score"></div>
@@ -64,15 +67,29 @@
         </div>
         <div class="area-2">
           <div class="area-2-container">
-            <div id="compareStatsHeaderContainer">
-              <h2 id="compareStatsHeader">Compare Stats</h2>
+            <div id="compareStatsTopContainer">
+              <div id="compareStatsHeaderContainer">
+                <h2 id="compareStatsHeader">Compare Stats</h2>
+              </div>
+              <div id="brianKiddEntries">
+                <input
+                  placeholder="Enter team one"
+                  type="text"
+                  id="brianKidd1"
+                />
+                <input
+                  placeholder="Enter team two"
+                  type="text"
+                  id="brianKidd2"
+                />
+                <button id="buttonBrianKidd">Calculate</button>
+              </div>
+              <!-- end compare stats container -->
+              <div class="input-error">
+                <div id="undefinedCompare"></div>
+              </div>
             </div>
-            <div class="brianKiddEntries">
-              <input placeholder="Enter team one" type="text" id="brianKidd1" />
-              <input placeholder="Enter team two" type="text" id="brianKidd2" />
-              <button id="buttonBrianKidd">Calculate</button>
-            </div>
-            <div class="statBreakdown">
+            <div class="stat-breakdown">
               <h3>Statistics Comparison</h3>
               <div class="all-stats">
                 <div id="teamNames"></div>
@@ -84,6 +101,7 @@
                 <div id="brianKiddTeam1Points"></div>
                 <div id="brianKiddOppPoints"></div>
                 <div id="brianKiddRebounds"></div>
+                <div id="brianKiddOffRebounds"></div>
                 <div id="brianKiddTurnovers"></div>
                 <div id="brianKiddOppTurnovers"></div>
                 <div id="brianKiddThreesPerGame"></div>
@@ -100,8 +118,6 @@
           </div>
           <!-- end area-2 -->
         </div>
-        <!-- <div class="push"></div> -->
-        <!-- end of content wrap -->
       </div>
       <footer>
         <div class="footer-left">
@@ -122,9 +138,7 @@
             class="fa fa-facebook"
           ></a>
         </div>
-        <div class="push"></div>
       </footer>
-      <!-- end of page container -->
     </div>
     <script type="text/javascript" src="js/config.js"></script>
     <script src="js/ppp.js"></script>
