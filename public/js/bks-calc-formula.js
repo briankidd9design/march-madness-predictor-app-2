@@ -157,6 +157,10 @@ function finalUserInputBK(data, brianKidd1Input, brianKidd2Input) {
     brianKidd1 = "UCLA";
   } else if (brianKidd2 === "Ucla") {
     brianKidd2 = "UCLA";
+  } else if (brianKidd1 === "Wsu") {
+    brianKidd1 = "Washington State";
+  } else if (brianKidd2 === "Wsu") {
+    brianKidd2 = "Washington State";
   }
   compareTeamsBK(data, brianKidd1, brianKidd2);
 }

@@ -84,6 +84,10 @@ function finalUserInput(data, kenPomTeam1Input, kenPomTeam2Input) {
     kenPomTeam1 = "UCLA";
   } else if (kenPomTeam2 === "Ucla") {
     kenPomTeam2 = "UCLA";
+  } else if (kenPomTeam1 === "Wsu") {
+    kenPomTeam1 = "Washington State";
+  } else if (kenPomTeam2 === "Wsu") {
+    kenPomTeam2 = "Washington State";
   }
   compareTeams(data, kenPomTeam1, kenPomTeam2);
 }
