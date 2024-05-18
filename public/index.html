@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -49,13 +50,15 @@
             <div id="kenPomEntries">
               <input placeholder="Enter team one" type="text" id="kenPom1" />
               <input placeholder="Enter team two" type="text" id="kenPom2" />
-              <button id="buttonKenPom">Calculate</button>
+              <button type="button" id="buttonKenPom">Calculate</button>
             </div>
             <div class="input-error">
+              <span id="kenError"></span>
               <div id="undefinedPrediction"></div>
             </div>
             <div id="scorePrediction">
               <h3>Score Prediction Result</h3>
+              <span style="color: red" id="loadingKenPomData"></span>
               <div id="kenPomTeam1Pos"></div>
               <div id="kenPomTeam2Pos"></div>
               <div id="kenPomTeam1Score"></div>
@@ -71,6 +74,7 @@
               <div id="compareStatsHeaderContainer">
                 <h2 id="compareStatsHeader">Compare Stats</h2>
               </div>
+
               <div id="brianKiddEntries">
                 <input
                   placeholder="Enter team one"
@@ -82,15 +86,20 @@
                   type="text"
                   id="brianKidd2"
                 />
-                <button id="buttonBrianKidd">Calculate</button>
+                <button type="button" id="buttonBrianKidd">Calculate</button>
               </div>
               <!-- end compare stats container -->
               <div class="input-error">
+                <span id="kenError"></span>
                 <div id="undefinedCompare"></div>
               </div>
             </div>
             <div class="stat-breakdown">
               <h3>Statistics Comparison</h3>
+              <span
+                style="display: flex; color: red; background-color: #e5ffff"
+                id="loadingBKStatsData"
+              ></span>
               <div class="all-stats">
                 <div id="teamNames"></div>
                 <div id="brianKiddNationalRank"></div>

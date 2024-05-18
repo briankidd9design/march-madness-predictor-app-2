@@ -18,6 +18,11 @@ router.get("/", async (req, res) => {
     res.status(200).json(data);
   } catch (error) {
     res.status(500).json({ error });
+    res.status(404).json({ error });
+    console.log(`there was an error getting the data, ${error}
+    `);
+    // document.getElementById("kenError").textContent =
+    //   "The hoops data you are looking for was no successfully recieved. Please cotact your admin.";
   }
 });
 

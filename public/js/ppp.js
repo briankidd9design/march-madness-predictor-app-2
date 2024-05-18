@@ -17,10 +17,18 @@ function displayData() {
       let response = await fetch(url);
       let data = await response.json();
       if (!response.ok) {
+        throw Error(
+          "Unsuccsessful response. There was an issue fetching the data."
+        );
       }
       getUserInput(data);
     } catch (error) {
-      console.log("there was an error getting the data");
+      console.log(`There was an error getting the data, ${error}
+      `);
+      document.getElementById("bkStatError").textContent =
+        "The hoops data you are looking for was no successfully recieved. Please cotact your admin.";
+    } finally {
+      document.getElementById("loadingKenPomData").remove();
     }
   }
   kenPomFormulaData();
@@ -51,8 +59,8 @@ class Team2 {
 
 // Get user input data and then pass it to the compareTeams function
 function getUserInput(data) {
-  let kenPomTeam1 = document.getElementById("kenPom1").value;
-  let kenPomTeam2 = document.getElementById("kenPom2").value;
+  let kenPomTeam1 = document.getElementById("kenPom1").value.trim();
+  let kenPomTeam2 = document.getElementById("kenPom2").value.trim();
   document.getElementById("undefinedPrediction").innerHTML = "";
   finalUserInput(data, kenPomTeam1, kenPomTeam2);
 }
@@ -84,12 +92,25 @@ function finalUserInput(data, kenPomTeam1Input, kenPomTeam2Input) {
     kenPomTeam1 = "UCLA";
   } else if (kenPomTeam2 === "Ucla") {
     kenPomTeam2 = "UCLA";
+  } else if (kenPomTeam1 === "Wsu") {
+    kenPomTeam1 = "Washington State";
+  } else if (kenPomTeam2 === "Wsu") {
+    kenPomTeam2 = "Washington State";
   }
   compareTeams(data, kenPomTeam1, kenPomTeam2);
 }
 
 let kenPomButton = document.getElementById("buttonKenPom");
+// [displayData, showLoading].forEach( evt =>
+//   element.addEventListener(evt, "click", false)
+// );
 kenPomButton.addEventListener("click", displayData);
+kenPomButton.addEventListener("click", showLoading);
+kenPomButton.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    displayData();
+  }
+});
 
 function compareTeams(data, kenPomTeam1, kenPomTeam2) {
   // DOM elements
@@ -104,6 +125,7 @@ function compareTeams(data, kenPomTeam1, kenPomTeam2) {
       kenPomTeam1 = data[i];
     }
   }
+
   for (let i = 0; i < data.length; i++) {
     if (data[i].team_name === kenPomTeam2) {
       kenPomTeam2 = data[i];
@@ -151,7 +173,7 @@ function compareTeams(data, kenPomTeam1, kenPomTeam2) {
       parseFloat(T1.offensiveRebounds) +
       (parseFloat(T1.turnovers) +
         parseFloat(0.475 * parseFloat(T1.freethrowAttempts)))
-  );
+  ).toFixed(2);
   kenPomTeam1Pos.innerHTML = `${T1.name}'s number of posessions per game is ${poss}`;
 
   let poss2 = Number(
@@ -159,7 +181,7 @@ function compareTeams(data, kenPomTeam1, kenPomTeam2) {
       parseFloat(T2.offensiveRebounds) +
       (parseFloat(T2.turnovers) +
         parseFloat(0.475 * parseFloat(T2.freethrowAttempts)))
-  );
+  ).toFixed(2);
   kenPomTeam2Pos.innerHTML = `${T2.name}'s number of posessions per game is ${poss2}`;
 
   //Team 1 total points (This is correct)
@@ -168,7 +190,9 @@ function compareTeams(data, kenPomTeam1, kenPomTeam2) {
     (100 - parseFloat(T2.defensiveRating)) +
     100;
   // console.log(ptsPerOneHundred);
-  let totalPoints = parseFloat(ptsPerOneHundred / 100) * parseFloat(poss);
+  let totalPoints = (
+    parseFloat(ptsPerOneHundred / 100) * parseFloat(poss)
+  ).toFixed(2);
   kenPomTeam1Score.innerHTML = `${T1.name} will score ${totalPoints} points`;
 
   //Team 2 total points
@@ -177,8 +201,16 @@ function compareTeams(data, kenPomTeam1, kenPomTeam2) {
     (100 - parseFloat(T1.defensiveRating)) +
     100;
   // console.log(`ptsPerOneHundred2 ${ptsPerOneHundred2}`);
-  let totalPoints2 = parseFloat(ptsPerOneHundred2 / 100) * parseFloat(poss2);
+  let totalPoints2 = (
+    parseFloat(ptsPerOneHundred2 / 100) * parseFloat(poss2)
+  ).toFixed(2);
   kenPomTeam2Score.innerHTML = `${T2.name} will score ${totalPoints2} points`;
 }
 
 document.querySelector("#copyrightYear").innerText = new Date().getFullYear();
+
+function showLoading() {
+  document.getElementById(
+    "loadingKenPomData"
+  ).innerHTML = `...Loading Basketball Data`;
+}

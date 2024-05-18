@@ -4,20 +4,23 @@ const apiEndPoint = `/api`;
 
 // Fetching the data
 function displayData() {
-  async function kenPomFormulaData() {
+  async function bkFormulaData() {
     try {
       let response = await fetch(apiEndPoint);
       let data = await response.json();
       if (!response.ok) {
-        console.log(data);
-        return;
+        throw Error(
+          "Unsuccessful response. There was an issue fetching the data"
+        );
       }
       getUserInputBK(data);
     } catch (error) {
-      console.log("there was an error getting the data");
+      console.log(`There was an error getting the data, ${error}`);
+    } finally {
+      document.getElementById("loadingBKStatsData").remove();
     }
   }
-  kenPomFormulaData();
+  bkFormulaData();
 }
 // Team Classes and Constructors
 class Team01 {
@@ -124,8 +127,8 @@ class Team02 {
 }
 // Get user input and pass it to compareTeamsBK function.
 function getUserInputBK(data) {
-  let brianKidd1 = document.getElementById("brianKidd1").value;
-  let brianKidd2 = document.getElementById("brianKidd2").value;
+  let brianKidd1 = document.getElementById("brianKidd1").value.trim();
+  let brianKidd2 = document.getElementById("brianKidd2").value.trim();
   document.getElementById("undefinedCompare").innerHTML = "";
   finalUserInputBK(data, brianKidd1, brianKidd2);
 }
@@ -157,12 +160,17 @@ function finalUserInputBK(data, brianKidd1Input, brianKidd2Input) {
     brianKidd1 = "UCLA";
   } else if (brianKidd2 === "Ucla") {
     brianKidd2 = "UCLA";
+  } else if (brianKidd1 === "Wsu") {
+    brianKidd1 = "Washington State";
+  } else if (brianKidd2 === "Wsu") {
+    brianKidd2 = "Washington State";
   }
   compareTeamsBK(data, brianKidd1, brianKidd2);
 }
 // Button will initiate API call for basketball stats API data
 let brianKiddButton = document.getElementById("buttonBrianKidd");
 brianKiddButton.addEventListener("click", displayData);
+brianKiddButton.addEventListener("click", showLoading);
 
 // function will compare the two teams using the input from the user
 function compareTeamsBK(data, brianKidd1, brianKidd2) {
@@ -304,7 +312,7 @@ function compareTeamsBK(data, brianKidd1, brianKidd2) {
   } else {
     countTeam1++;
   }
-  let defRtgDiff = Math.abs(T1.defensivert - T2.defensivert);
+  let defRtgDiff = Math.abs(T1.defensivert - T2.defensivert).toFixed(2);
 
   bkDefensiveRating.innerHTML = `${T1.name} defensive rating is ${T1.defensivert} and ${T2.name} defensive rating is ${T2.defensivert}. The Differential is ${defRtgDiff} points`;
 
@@ -317,7 +325,7 @@ function compareTeamsBK(data, brianKidd1, brianKidd2) {
   } else {
     countTeam2++;
   }
-  let ofRtgDiff = Math.abs(T1.offensivert - T2.offensivert);
+  let ofRtgDiff = Math.abs(T1.offensivert - T2.offensivert).toFixed(2);
 
   bkOffensiveRating.innerHTML = `${T1.name} offensive rating is ${T1.offensivert} and ${T2.name} offensive rating is ${T2.offensivert}. The Differential is ${ofRtgDiff} points`;
 
@@ -330,7 +338,7 @@ function compareTeamsBK(data, brianKidd1, brianKidd2) {
   } else {
     countTeam2++;
   }
-  let schedDif = Math.abs(T1.schedDifficulty - T2.schedDifficulty);
+  let schedDif = Math.abs(T1.schedDifficulty - T2.schedDifficulty).toFixed(2);
   bkScheduleDifficulty.innerHTML = `${T1.name} schedule difficulty this season is ${T1.schedDifficulty} and ${T2.name} schedule difficulty this season is ${T2.schedDifficulty}. The Differential is ${schedDif} difficulty points.`;
   // total points per game
   if (parseFloat(T1.pointPerG) > parseFloat(T2.pointPerG)) {
@@ -343,7 +351,7 @@ function compareTeamsBK(data, brianKidd1, brianKidd2) {
   }
   // total points per game diff
   // Points
-  let PpgDiffrtl = Math.abs(T1.pointPerG - T2.pointPerG);
+  let PpgDiffrtl = Math.abs(T1.pointPerG - T2.pointPerG).toFixed(2);
 
   bkPoints.innerHTML = `${T1.name} scores ${T1.pointPerG} points per game and ${T2.name} scores ${T2.pointPerG} points per game. The Differential is ${PpgDiffrtl}`;
 
@@ -357,7 +365,7 @@ function compareTeamsBK(data, brianKidd1, brianKidd2) {
     countTeam1++;
   }
   // Opp points per game differential
-  let OppgDiffrtl = Math.abs(T1.oponPpg - T2.oponPpg);
+  let OppgDiffrtl = Math.abs(T1.oponPpg - T2.oponPpg).toFixed(2);
 
   bkOppPoints.innerHTML = `${T1.name} opponents score ${T1.oponPpg} points per game and ${T2.name} opponents score ${T2.oponPpg} points per game. The Differential is ${OppgDiffrtl}`;
 
@@ -371,7 +379,7 @@ function compareTeamsBK(data, brianKidd1, brianKidd2) {
     countTeam2++;
   }
   // Rebounds Diff
-  let rbndsDiff = Math.abs(T1.rebounds - T2.rebounds);
+  let rbndsDiff = Math.abs(T1.rebounds - T2.rebounds).toFixed(2);
 
   bkRebounds.innerHTML = `${T1.name} get ${T1.rebounds} rebounds per game and ${T2.name} get ${T2.rebounds} rebounds per game. The Differential is ${rbndsDiff}`;
 
@@ -387,7 +395,9 @@ function compareTeamsBK(data, brianKidd1, brianKidd2) {
     countTeam2++;
   }
   // Offensive Rebounds Diff
-  let offRbndsDiff = Math.abs(T1.offensiveRebounds - T2.offensiveRebounds);
+  let offRbndsDiff = Math.abs(
+    T1.offensiveRebounds - T2.offensiveRebounds
+  ).toFixed(2);
 
   bkOffRebounds.innerHTML = `${T1.name} get ${T1.offensiveRebounds} offensive rebounds per game and ${T2.name} get ${T2.offensiveRebounds} offensive rebounds per game. The Differential is ${offRbndsDiff}`;
 
@@ -400,7 +410,7 @@ function compareTeamsBK(data, brianKidd1, brianKidd2) {
   } else {
     countTeam1++;
   }
-  let turnOvsDiff = Math.abs(T1.turnovers - T2.turnovers);
+  let turnOvsDiff = Math.abs(T1.turnovers - T2.turnovers).toFixed(2);
 
   bkTurnovers.innerHTML = `${T1.name} commit ${T1.turnovers} turnovers per game and ${T2.name} commit ${T2.turnovers}  per game. The Differential is ${turnOvsDiff}`;
 
@@ -414,7 +424,7 @@ function compareTeamsBK(data, brianKidd1, brianKidd2) {
     countTeam2++;
   }
 
-  let oppTurnOvsDiff = Math.abs(T1.opTurnovers - T2.opTurnovers);
+  let oppTurnOvsDiff = Math.abs(T1.opTurnovers - T2.opTurnovers).toFixed(2);
 
   bkOppTurnovers.innerHTML = `${T1.name} opponents commit ${T1.opTurnovers} turnOvers per game and ${T2.name} opponents commit ${T2.opTurnovers} per game. The Differential is ${oppTurnOvsDiff}`;
   //Three pointers per game
@@ -426,7 +436,7 @@ function compareTeamsBK(data, brianKidd1, brianKidd2) {
   } else {
     countTeam2++;
   }
-  let tppgDiff = Math.abs(T1.tresPg - T2.tresPg);
+  let tppgDiff = Math.abs(T1.tresPg - T2.tresPg).toFixed(2);
 
   bkThreesPerGame.innerHTML = `${T1.name} scores ${T1.tresPg} threes per game and ${T2.name} scores ${T2.tresPg} threes per game. The Differential is ${tppgDiff}`;
   // Three-point percentage
@@ -439,7 +449,7 @@ function compareTeamsBK(data, brianKidd1, brianKidd2) {
   } else {
     countTeam2++;
   }
-  let tPpctDiff = Math.abs(T1.threeptpct - T2.threeptpct);
+  let tPpctDiff = Math.abs(T1.threeptpct - T2.threeptpct).toFixed(2);
 
   bkThreePointPerc.innerHTML = `${T1.name} three-point percentage is ${T1.threeptpct} percent and ${T2.name} three-point percentage is ${T2.threeptpct} percent. The Differential is ${tPpctDiff} percent`;
 
@@ -452,7 +462,7 @@ function compareTeamsBK(data, brianKidd1, brianKidd2) {
   } else {
     countTeam1++;
   }
-  let oPtppgDiff = Math.abs(T1.oppthrees - T2.oppthrees);
+  let oPtppgDiff = Math.abs(T1.oppthrees - T2.oppthrees).toFixed(2);
 
   bkThreesOppPerGame.innerHTML = `${T1.name} opponents score ${T1.oppthrees} threes per game and ${T2.name} opponents score ${T2.oppthrees} threes per game. The Differential is ${oPtppgDiff} test`;
   // //two point percentage
@@ -465,7 +475,7 @@ function compareTeamsBK(data, brianKidd1, brianKidd2) {
     countTeam2++;
   }
 
-  let twoPpDiff = Math.abs(T1.twoptpct - T2.twoptpct);
+  let twoPpDiff = Math.abs(T1.twoptpct - T2.twoptpct).toFixed(2);
 
   bkTwoPointPerc.innerHTML = `${T1.name} two point percentage is ${T1.twoptpct} and ${T2.name} two point percentage is ${T2.twoptpct} percent. The Differential is ${twoPpDiff} percent`;
 
@@ -479,7 +489,7 @@ function compareTeamsBK(data, brianKidd1, brianKidd2) {
     countTeam2++;
   }
 
-  let fTPctDiff = Math.abs(T1.freethpct - T2.freethpct);
+  let fTPctDiff = Math.abs(T1.freethpct - T2.freethpct).toFixed(2);
 
   bkFreeThrowPerc.innerHTML = `${T1.name} free throw percentage is ${T1.freethpct} percent and ${T2.name} free throw percentage is ${T2.freethpct} percent. The Differential is ${fTPctDiff} percent`;
   // Add later to interface
@@ -541,8 +551,13 @@ function compareTeamsBK(data, brianKidd1, brianKidd2) {
   // } else {
   //   countTeam2++;
   // }
-  let differential = countTeam1 - countTeam2;
+  let differential = Math.abs(countTeam1 - countTeam2);
 
   bkStatDifferential.innerHTML = `The final count for ${brianKidd1.team_name} is ${countTeam1}  and ${brianKidd2.team_name} is ${countTeam2}  The differential is ${differential}`;
 }
 // use forEach loop to show all the stats for both teams
+function showLoading() {
+  document.getElementById(
+    "loadingBKStatsData"
+  ).innerHTML = `...Loading Basketball Data`;
+}
