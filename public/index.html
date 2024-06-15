@@ -31,9 +31,9 @@
             <nav>
               <ul>
                 <li><a id="connect" href="connect.html">Connect</a></li>
-                <li><a href="data.html">About</a></li>
-                <li><a href="about.html">Data</a></li>
-                <li><a class="active" href="index">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="data.html">Data</a></li>
+                <li><a class="active" href="index.html">Home</a></li>
               </ul>
             </nav>
 
@@ -48,8 +48,18 @@
           <div id="eachTeamContainer">
             <h2 id="eachTeamHeader">Each Team</h2>
             <div id="kenPomEntries">
-              <input placeholder="Enter team one" type="text" id="kenPom1" />
-              <input placeholder="Enter team two" type="text" id="kenPom2" />
+              <input
+                placeholder="Enter team one"
+                type="text"
+                id="kenPom1"
+                required
+              />
+              <input
+                placeholder="Enter team two"
+                type="text"
+                id="kenPom2"
+                required
+              />
               <button type="button" id="buttonKenPom">Calculate</button>
             </div>
             <div class="input-error">
@@ -80,11 +90,13 @@
                   placeholder="Enter team one"
                   type="text"
                   id="brianKidd1"
+                  required
                 />
                 <input
                   placeholder="Enter team two"
                   type="text"
                   id="brianKidd2"
+                  required
                 />
                 <button type="button" id="buttonBrianKidd">Calculate</button>
               </div>

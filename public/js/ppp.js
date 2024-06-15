@@ -12,6 +12,13 @@
 const url = `/api`;
 // Fetching the data
 function displayData() {
+  let kenPom1 = document.getElementById("kenPom1");
+  let kenPom2 = document.getElementById("kenPom2");
+  let undefinedPrediction = document.getElementById("undefinedPrediction");
+  if (kenPom1.value.trim() === "" || kenPom2.value.trim() === " ") {
+    undefinedPrediction.innerHTML = `You must enter make an entry for each team`;
+    return;
+  }
   async function kenPomFormulaData() {
     try {
       let response = await fetch(url);
@@ -210,7 +217,9 @@ function compareTeams(data, kenPomTeam1, kenPomTeam2) {
 document.querySelector("#copyrightYear").innerText = new Date().getFullYear();
 
 function showLoading() {
-  document.getElementById(
-    "loadingKenPomData"
-  ).innerHTML = `...Loading Basketball Data`;
+  if (kenPom1.value.trim() !== "" || kenPom2.value.trim() !== "") {
+    document.getElementById(
+      "loadingKenPomData"
+    ).innerHTML = `...Loading Basketball Data`;
+  }
 }

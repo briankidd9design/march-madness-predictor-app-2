@@ -4,6 +4,13 @@ const apiEndPoint = `/api`;
 
 // Fetching the data
 function displayData() {
+  let brianKidd1 = document.getElementById("brianKidd1");
+  let brianKidd2 = document.getElementById("brianKidd2");
+  let undefinedCompare = document.getElementById("undefinedCompare");
+  if (brianKidd1.value.trim() === "" || brianKidd2.value.trim() === " ") {
+    undefinedCompare.innerHTML = `You must enter make an entry for each team`;
+    return;
+  }
   async function bkFormulaData() {
     try {
       let response = await fetch(apiEndPoint);
@@ -557,7 +564,9 @@ function compareTeamsBK(data, brianKidd1, brianKidd2) {
 }
 // use forEach loop to show all the stats for both teams
 function showLoading() {
-  document.getElementById(
-    "loadingBKStatsData"
-  ).innerHTML = `...Loading Basketball Data`;
+  if (brianKidd1.value.trim() !== "" || brianKidd2.value.trim() !== "") {
+    document.getElementById(
+      "loadingBKStatsData"
+    ).innerHTML = `...Loading Basketball Data`;
+  }
 }
