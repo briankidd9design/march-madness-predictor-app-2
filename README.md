@@ -18,13 +18,7 @@ Also important game stats are weighted and tallied including the national and co
 
 ##
 
--If you choose to run this app locally with your own https://sheetdb.io/ spread sheet, create a config.js file and enter your own sheetDB.io api key like so
-
-##
-
-`var config = {
-MY_KEY: "<YourApiKey>",
-};`
+-Run this application locally by running npm install. Then npm run dev. You will need your own api key in an .env file in order to run your own basketball data. example `API_BASE_URL = {your-api-key}`
 
 ##
 
@@ -34,9 +28,43 @@ Then see js files to see how the api key is entered into the api url
 
 ### Installing
 
+-npm install
+-enter your own api key from SheetsDB.
+-Data Column Titles are the following
+
+1. team_name
+2. nat_rank
+3. conf_rank
+4. ppg_avg
+5. op_ppg_avg
+6. orbs
+7. rbs
+8. trnovs
+9. optrnovs
+10. tppg
+11. op_tppg
+12. fga
+13. twopt_pct
+14. fta
+15. ft_pct
+16. tp_pct
+17. def_rating
+18. offsv_rating
+19. all_americans
+20. sched_dfclty
+21. last_matchup
+22. injuries
+23. home_court_adv
+24. days_off
+25. eye_test
+
 ### Executing program
 
+npm run dev
+
 ## Help
+
+contact your adimin: Brian David Kidd: theholisticprogrammer@gmail.com
 
 ## Authors
 
