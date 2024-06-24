@@ -567,6 +567,6 @@ function showLoading() {
   if (brianKidd1.value.trim() !== "" || brianKidd2.value.trim() !== "") {
     document.getElementById(
       "loadingBKStatsData"
-    ).innerHTML = `...Loading Basketball Data`;
+    ).innerHTML = `Loading Basketball Data...`;
   }
 }

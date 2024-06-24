@@ -220,6 +220,6 @@ function showLoading() {
   if (kenPom1.value.trim() !== "" || kenPom2.value.trim() !== "") {
     document.getElementById(
       "loadingKenPomData"
-    ).innerHTML = `...Loading Basketball Data`;
+    ).innerHTML = `Loading Basketball Data...`;
   }
 }
