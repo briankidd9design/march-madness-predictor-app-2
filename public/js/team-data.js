@@ -42,7 +42,7 @@ const displayData = async () => {
 displayData();
 
 dataLoading.innerHTML = `
-loading basketball data...
+Loading Basketball Data...
 `;
 
 document.querySelector("#copyrightYear").innerText = new Date().getFullYear();
