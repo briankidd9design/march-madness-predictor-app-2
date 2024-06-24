@@ -8,7 +8,7 @@ function displayData() {
   let brianKidd2 = document.getElementById("brianKidd2");
   let undefinedCompare = document.getElementById("undefinedCompare");
   if (brianKidd1.value.trim() === "" || brianKidd2.value.trim() === " ") {
-    undefinedCompare.innerHTML = `You must enter make an entry for each team`;
+    undefinedCompare.innerHTML = `You must submit an entry for each team`;
     return;
   }
   async function bkFormulaData() {
