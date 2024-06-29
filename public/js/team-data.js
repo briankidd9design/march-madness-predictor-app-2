@@ -6,7 +6,6 @@ const getTeamData = async () => {
   try {
     const res = await fetch(url);
     let data = await res.json();
-    console.log(data);
     if (!res.ok) {
       throw Error(
         "Unsuccessful response. There was an issue fetching the data"
