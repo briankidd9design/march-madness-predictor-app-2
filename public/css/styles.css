@@ -352,6 +352,7 @@ a#footerWebsiteLink:hover {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto;
+
   overflow: scroll;
 }
 #aboutCol2 {
@@ -366,11 +367,11 @@ a#footerWebsiteLink:hover {
   justify-content: start;
   border-right: 2px solid var(--color-night-sky);
 }
+#aboutVerbiage2 {
+  margin-left: 10px;
+}
 #kiddBall {
   float: left;
-}
-#smallestMobile {
-  display: none;
 }
 #aboutVerbiage1 {
   margin-left: 5px;
@@ -383,9 +384,15 @@ a#footerWebsiteLink:hover {
   position: absolute;
   margin-right: 10px;
 } */
-@media screen and (max-width: 1200px) {
+/* @media screen and (max-width: 1200px) {
   #aboutContent {
     grid-template-columns: repeat(1, 1fr);
+  }
+} */
+@media screen and (max-width: 1366px) {
+  #aboutPhotos {
+    flex-direction: column;
+    align-items: center;
   }
 }
 @media screen and (max-width: 1024px) {
@@ -426,6 +433,9 @@ a#footerWebsiteLink:hover {
 
   .heading-div {
     font-size: 18px;
+  }
+  .data-box {
+    top: 105px;
   }
   #dataDivData > div {
     font-size: 15px;
@@ -529,13 +539,15 @@ a#footerWebsiteLink:hover {
   }
   /* data page */
   .data-box {
-    top: 100px;
     height: 80vh;
   }
   /* about page */
   #kiddBall {
     width: 150px;
     height: 213px;
+  }
+  #aboutContent {
+    grid-template-columns: repeat(1, 1fr);
   }
   #aboutPhotos {
     align-items: center;
@@ -544,6 +556,19 @@ a#footerWebsiteLink:hover {
   }
   #aboutVerbiage1 {
     text-align: center;
+  }
+}
+
+@media screen and (max-width: 900px) and (max-height: 700px) {
+  #aboutVerbiage1 {
+    height: 450px;
+  }
+  #aboutVerbiage2 {
+    height: 450px;
+  }
+  #spacer {
+    height: 50px;
+    background-color: var(--color-night-sky);
   }
 }
 @media screen and (max-width: 497px) {

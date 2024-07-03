@@ -52,21 +52,20 @@
         <div class="data-box">
           <div id="dataHeader"><h1>About</h1></div>
           <div class="about-grid-div" id="aboutContent">
+            <!-- col-1 -->
             <div id="aboutPhotos">
-              <img
-                id="kiddBall"
-                srcset="
-                  ./assets/images/kidd-ball-1_60w.jpg   60w,
-                  ./assets/images/kidd-ball-1_100w.jpg 100w,
-                  ./assets/images/kidd-ball-1_340w.jpg 340w
-                "
-                sizes="
-                (max-width: 1024px) 60px, 
-                (max-width: 1366px) 100px, 
-                 340px"
-                src="./assets/images/kidd-ball-1_340w.jpg 340w"
-                alt="young brian basketball"
-              />
+              <div>
+                <img
+                  id="kiddBall"
+                  srcset="./assets/images/kidd-ball-1_225w.jpg 225w"
+                  sizes="
+                (max-width: 1366px) 225px, 
+                 300px"
+                  src="./assets/images/kidd-ball-1_225w.jpg"
+                  alt="young brian basketball"
+                />
+              </div>
+              <!-- col-2 -->
               <div id="aboutVerbiage1">
                 <h2>Love for the Game</h2>
                 <p>
@@ -81,10 +80,11 @@
                 </p>
               </div>
             </div>
-
+            <!-- col-2 -->
             <div class="about-grid-div">
-              <h2>About this Site</h2>
               <div id="aboutVerbiage2">
+                <h2>About this Site</h2>
+
                 <p>
                   The idea for this site came to me when I was filling out my
                   2023 NCAA Men's Division I Tournament Bracket. I was analyzing
@@ -107,8 +107,8 @@
                 </p>
               </div>
             </div>
-            <div class="about-grid-div"></div>
-            <div class="about-grid-div"></div>
+            <!-- <div class="about-grid-div"></div>
+            <div class="about-grid-div"></div> -->
           </div>
         </div>
 
@@ -119,6 +119,7 @@
           <!-- end area-2 -->
         </div>
       </div>
+      <div id="spacer"></div>
       <footer>
         <div class="footer-left">
           <a
