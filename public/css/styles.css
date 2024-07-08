@@ -295,6 +295,32 @@ a#footerWebsiteLink:hover {
   margin-right: auto;
   color: var(--color-night-sky);
 }
+#dataSourceLegend {
+  background-color: white;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+#dataInfo {
+  position: absolute;
+  left: 0;
+  top: 15%;
+  margin-left: 10px;
+  padding: 10px;
+  background-color: var(--color-night-sky);
+  color: var(--color-sky);
+}
+#closeLegend {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--color-night-sky);
+  color: var(--color-sky);
+}
 #dataLoading {
   color: red;
 }
@@ -541,6 +567,12 @@ a#footerWebsiteLink:hover {
   /* data page */
   .data-box {
     height: 80vh;
+  }
+  #dataInfo {
+    padding: 0;
+    left: 0;
+    top: 0;
+    margin-left: 0;
   }
   /* about page */
   #kiddBall {

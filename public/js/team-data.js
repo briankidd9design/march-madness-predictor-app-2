@@ -1,6 +1,8 @@
 const url = `/api`;
 const dataDivData = document.getElementById("dataDivData");
 const dataLoading = document.getElementById("dataLoading");
+const dataInfo = document.getElementById("dataInfo");
+const closeLegend = document.getElementById("closeLegend");
 
 const getTeamData = async () => {
   try {
@@ -39,6 +41,34 @@ const displayData = async () => {
 };
 
 displayData();
+
+const dataSourceLegend = document.getElementById("dataSourceLegend");
+dataSourceLegend.style.display = "none";
+function showHideDiv(dataSourceLegend) {
+  dataSourceLegend = document.getElementById("dataSourceLegend");
+  if (
+    dataSourceLegend.style.display == "null" ||
+    dataSourceLegend.style.display == "none"
+  ) {
+    dataSourceLegend.style.display = "flex";
+    dataInfo.innerHTML = "Close Box";
+  } else {
+    dataSourceLegend.style.display = "none";
+    dataInfo.innerHTML = "Data Source";
+  }
+}
+dataInfo.addEventListener(
+  "click",
+  () => {
+    showHideDiv(dataSourceLegend);
+  },
+  false
+);
+
+closeLegend.addEventListener("click", () => {
+  dataSourceLegend.style.display = "none";
+  dataInfo.innerHTML = "Data Source";
+});
 
 dataLoading.innerHTML = `
 Loading Basktball Data...
