@@ -314,12 +314,18 @@ a#footerWebsiteLink:hover {
   background-color: var(--color-night-sky);
   color: var(--color-sky);
 }
+#dataInfo:hover {
+  cursor: pointer;
+}
 #closeLegend {
   position: absolute;
   top: 0;
   right: 0;
   background-color: var(--color-night-sky);
   color: var(--color-sky);
+}
+#closeLegend:hover {
+  cursor: pointer;
 }
 #dataLoading {
   color: red;
