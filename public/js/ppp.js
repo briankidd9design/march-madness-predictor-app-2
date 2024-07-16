@@ -28,7 +28,7 @@ function displayData() {
           "Unsuccsessful response. There was an issue fetching the data."
         );
       }
-      getUserInput(data);
+      await getUserInput(data);
     } catch (error) {
       console.log(`There was an error getting the data, ${error}
       `);
@@ -65,7 +65,7 @@ class Team2 {
 }
 
 // Get user input data and then pass it to the compareTeams function
-function getUserInput(data) {
+async function getUserInput(data) {
   let kenPomTeam1 = document.getElementById("kenPom1").value.trim();
   let kenPomTeam2 = document.getElementById("kenPom2").value.trim();
   document.getElementById("undefinedPrediction").innerHTML = "";
@@ -81,28 +81,45 @@ function finalUserInput(data, kenPomTeam1Input, kenPomTeam2Input) {
   });
   if (kenPomTeam1 === "Unc") {
     kenPomTeam1 = "North Carolina";
-  } else if (kenPomTeam2 === "Unc") {
+  }
+  if (kenPomTeam2 === "Unc") {
     kenPomTeam2 = "North Carolina";
-  } else if (kenPomTeam1 === "North Carolina State") {
+  }
+  if (kenPomTeam1 === "North Carolina State") {
     kenPomTeam1 = "NC State";
-  } else if (kenPomTeam2 === "North Carolina State") {
+  }
+  if (kenPomTeam2 === "North Carolina State") {
     kenPomTeam2 = "NC State";
-  } else if (kenPomTeam1 === "Texas A&m") {
+  }
+  if (kenPomTeam1 === "Texas A&m") {
     kenPomTeam1 = "Texas A&M";
-  } else if (kenPomTeam2 === "Texas A&m") {
+  }
+  if (kenPomTeam2 === "Texas A&m") {
     kenPomTeam2 = "Texas A&M";
-  } else if (kenPomTeam1 === "Usc") {
+  }
+  if (kenPomTeam1 === "Usc") {
     kenPomTeam1 = "USC";
-  } else if (kenPomTeam2 === "Usc") {
+  }
+  if (kenPomTeam2 === "Usc") {
     kenPomTeam2 = "USC";
-  } else if (kenPomTeam1 === "Ucla") {
+  }
+  if (kenPomTeam1 === "Ucla") {
     kenPomTeam1 = "UCLA";
-  } else if (kenPomTeam2 === "Ucla") {
+  }
+  if (kenPomTeam2 === "Ucla") {
     kenPomTeam2 = "UCLA";
-  } else if (kenPomTeam1 === "Wsu") {
+  }
+  if (kenPomTeam1 === "Wsu") {
     kenPomTeam1 = "Washington State";
-  } else if (kenPomTeam2 === "Wsu") {
+  }
+  if (kenPomTeam2 === "Wsu") {
     kenPomTeam2 = "Washington State";
+  }
+  if (kenPomTeam1 === "Byu") {
+    kenPomTeam1 = "BYU";
+  }
+  if (kenPomTeam2 === "Byu") {
+    kenPomTeam2 = "BYU";
   }
   compareTeams(data, kenPomTeam1, kenPomTeam2);
 }

@@ -20,7 +20,7 @@ function displayData() {
           "Unsuccessful response. There was an issue fetching the data"
         );
       }
-      getUserInputBK(data);
+      await getUserInputBK(data);
     } catch (error) {
       console.log(`There was an error getting the data, ${error}`);
     } finally {
@@ -133,7 +133,7 @@ class Team02 {
   }
 }
 // Get user input and pass it to compareTeamsBK function.
-function getUserInputBK(data) {
+async function getUserInputBK(data) {
   let brianKidd1 = document.getElementById("brianKidd1").value.trim();
   let brianKidd2 = document.getElementById("brianKidd2").value.trim();
   document.getElementById("undefinedCompare").innerHTML = "";
@@ -149,28 +149,45 @@ function finalUserInputBK(data, brianKidd1Input, brianKidd2Input) {
   });
   if (brianKidd1 === "Unc") {
     brianKidd1 = "North Carolina";
-  } else if (brianKidd2 === "Unc") {
+  }
+  if (brianKidd2 === "Unc") {
     brianKidd2 = "North Carolina";
-  } else if (brianKidd1 === "North Carolina State") {
+  }
+  if (brianKidd1 === "North Carolina State") {
     brianKidd1 = "NC State";
-  } else if (brianKidd2 === "North Carolina State") {
+  }
+  if (brianKidd2 === "North Carolina State") {
     brianKidd2 = "NC State";
-  } else if (brianKidd1 === "Texas A&m") {
+  }
+  if (brianKidd1 === "Texas A&m") {
     brianKidd1 = "Texas A&M";
-  } else if (brianKidd2 === "Texas A&m") {
+  }
+  if (brianKidd2 === "Texas A&m") {
     brianKidd2 = "Texas A&M";
-  } else if (brianKidd1 === "Usc") {
+  }
+  if (brianKidd1 === "Usc") {
     brianKidd1 = "USC";
-  } else if (brianKidd2 === "Usc") {
+  }
+  if (brianKidd2 === "Usc") {
     brianKidd2 = "USC";
-  } else if (brianKidd1 === "Ucla") {
+  }
+  if (brianKidd1 === "Ucla") {
     brianKidd1 = "UCLA";
-  } else if (brianKidd2 === "Ucla") {
+  }
+  if (brianKidd2 === "Ucla") {
     brianKidd2 = "UCLA";
-  } else if (brianKidd1 === "Wsu") {
+  }
+  if (brianKidd1 === "Wsu") {
     brianKidd1 = "Washington State";
-  } else if (brianKidd2 === "Wsu") {
+  }
+  if (brianKidd2 === "Wsu") {
     brianKidd2 = "Washington State";
+  }
+  if (brianKidd1 === "Byu") {
+    brianKidd1 = "BYU";
+  }
+  if (brianKidd2 === "Byu") {
+    brianKidd2 = "BYU";
   }
   compareTeamsBK(data, brianKidd1, brianKidd2);
 }
