@@ -121,6 +121,19 @@ function finalUserInput(data, kenPomTeam1Input, kenPomTeam2Input) {
   if (kenPomTeam2 === "Byu") {
     kenPomTeam2 = "BYU";
   }
+  if (kenPomTeam2 === "Tcu") {
+    kenPomTeam2 = "TCU";
+  }
+  if (kenPomTeam1 === "Tcu") {
+    kenPomTeam1 = "TCU";
+  }
+  if (kenPomTeam2 === "Fau") {
+    kenPomTeam2 = "FAU";
+  }
+  if (kenPomTeam1 === "Fau") {
+    kenPomTeam1 = "FAU";
+  }
+
   compareTeams(data, kenPomTeam1, kenPomTeam2);
 }
 

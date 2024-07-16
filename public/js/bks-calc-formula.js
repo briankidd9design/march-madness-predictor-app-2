@@ -189,6 +189,18 @@ function finalUserInputBK(data, brianKidd1Input, brianKidd2Input) {
   if (brianKidd2 === "Byu") {
     brianKidd2 = "BYU";
   }
+  if (brianKidd1 === "Tcu") {
+    brianKidd1 = "TCU";
+  }
+  if (brianKidd2 === "Tcu") {
+    brianKidd2 = "TCU";
+  }
+  if (brianKidd1 === "Fau") {
+    brianKidd1 = "FAU";
+  }
+  if (brianKidd2 === "Fau") {
+    brianKidd2 = "FAU";
+  }
   compareTeamsBK(data, brianKidd1, brianKidd2);
 }
 // Button will initiate API call for basketball stats API data
