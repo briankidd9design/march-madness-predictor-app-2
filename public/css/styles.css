@@ -126,7 +126,7 @@ h5 {
 }
 #buttonKenPom {
   padding: 0 5%;
-  background-color: rgb(191, 71, 27, 0.5);
+  background-color: rgb(191, 71, 27, 0.1);
   color: var(--color-night-sky);
   border-radius: 5px;
   border-color: var(--color-night-sky);
