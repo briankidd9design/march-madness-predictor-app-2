@@ -207,6 +207,12 @@ function finalUserInputBK(data, brianKidd1Input, brianKidd2Input) {
   if (brianKidd2 === "Connecticut") {
     brianKidd2 = "Uconn";
   }
+  if (brianKidd1 === "Saint Mary's") {
+    brianKidd1 = "Saint Marys";
+  }
+  if (brianKidd2 === "Saint Mary's") {
+    brianKidd2 = "Saint Marys";
+  }
   compareTeamsBK(data, brianKidd1, brianKidd2);
 }
 // Button will initiate API call for basketball stats API data

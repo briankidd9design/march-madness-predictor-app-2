@@ -139,6 +139,12 @@ function finalUserInput(data, kenPomTeam1Input, kenPomTeam2Input) {
   if (kenPomTeam1 === "Connecticut") {
     kenPomTeam1 = "Uconn";
   }
+  if (kenPomTeam2 === "Saint Mary's") {
+    kenPomTeam2 = "Saint Marys";
+  }
+  if (kenPomTeam1 === "Saint Mary's") {
+    kenPomTeam1 = "Saint Marys";
+  }
 
   compareTeams(data, kenPomTeam1, kenPomTeam2);
 }
