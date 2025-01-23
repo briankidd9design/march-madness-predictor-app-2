@@ -492,7 +492,7 @@ a#footerWebsiteLink:hover {
     border-top: 3px solid var(--color-sky);
     position: relative;
     bottom: 0;
-    width: 100vw;
+    width: 100%;
   }
   .footer-right {
     background-color: var(--color-night-sky);

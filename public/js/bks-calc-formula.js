@@ -512,7 +512,7 @@ function compareTeamsBK(data, brianKidd1, brianKidd2) {
   }
   let oPtppgDiff = Math.abs(T1.oppthrees - T2.oppthrees).toFixed(2);
 
-  bkThreesOppPerGame.innerHTML = `${T1.name} opponents score ${T1.oppthrees} threes per game and ${T2.name} opponents score ${T2.oppthrees} threes per game. The Differential is ${oPtppgDiff} test`;
+  bkThreesOppPerGame.innerHTML = `${T1.name} opponents score ${T1.oppthrees} threes per game and ${T2.name} opponents score ${T2.oppthrees} threes per game. The Differential is ${oPtppgDiff}`;
   // //two point percentage
   if (parseFloat(T1.twoptpct) > parseFloat(T2.twoptpct)) {
     countTeam1++;
