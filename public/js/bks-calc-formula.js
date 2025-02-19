@@ -25,6 +25,10 @@ function displayData() {
       console.log(`There was an error getting the data, ${error}`);
     } finally {
       document.getElementById("loadingBKStatsData").remove();
+      let allStatsDivs = document.querySelectorAll(".all-stats div");
+      allStatsDivs.forEach((allStatsDiv) => {
+        allStatsDiv.classList.add("show-team-stats");
+      });
     }
   }
   bkFormulaData();

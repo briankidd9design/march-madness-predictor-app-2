@@ -211,6 +211,9 @@ h5 {
   background-color: var(--color-sky);
   color: var(--color-night-sky);
 }
+.show-team-stats {
+  padding: 0.3em 0;
+}
 #brianKiddEntries {
   display: flex;
   flex-direction: row;
