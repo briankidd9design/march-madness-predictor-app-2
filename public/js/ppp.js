@@ -16,7 +16,7 @@ function displayData() {
   let kenPom2 = document.getElementById("kenPom2");
   let undefinedPrediction = document.getElementById("undefinedPrediction");
   if (kenPom1.value.trim() === "" || kenPom2.value.trim() === " ") {
-    undefinedPrediction.innerHTML = `You must submit an entry for each team`;
+    undefinedPrediction.innerHTML = `You must submit an entry for each team. Team options are listed on the data page.`;
     return;
   }
   async function kenPomFormulaData() {
