@@ -599,6 +599,9 @@ a#footerWebsiteLink:hover {
   #aboutVerbiage1 {
     text-align: center;
   }
+  #aboutPhotos {
+    border-right: none;
+  }
 }
 
 @media screen and (max-width: 900px) and (max-height: 700px) {
@@ -609,8 +612,11 @@ a#footerWebsiteLink:hover {
     height: 450px;
   }
   #spacer {
-    height: 50px;
+    height: 125px;
     background-color: var(--color-night-sky);
+  }
+  .data-box {
+    height: 95vh;
   }
 }
 @media screen and (max-width: 497px) {
