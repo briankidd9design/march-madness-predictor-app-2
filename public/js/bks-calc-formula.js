@@ -217,6 +217,24 @@ function finalUserInputBK(data, brianKidd1Input, brianKidd2Input) {
   if (brianKidd2 === "Saint Mary's") {
     brianKidd2 = "Saint Marys";
   }
+  if (brianKidd1 === "Uc San Diego") {
+    brianKidd1 = "UC San Diego";
+  }
+  if (brianKidd2 === "Uc San Diego") {
+    brianKidd2 = "UC San Diego";
+  }
+  if (brianKidd1 === "Unc Wilmington") {
+    brianKidd1 = "UNC Wilmington";
+  }
+  if (brianKidd2 === "Unc Wilmington") {
+    brianKidd2 = "UNC Wilmington";
+  }
+  if (brianKidd1 === "Siue") {
+    brianKidd1 = "SIUE";
+  }
+  if (brianKidd2 === "Siue") {
+    brianKidd2 = "SIUE";
+  }
   compareTeamsBK(data, brianKidd1, brianKidd2);
 }
 // Button will initiate API call for basketball stats API data

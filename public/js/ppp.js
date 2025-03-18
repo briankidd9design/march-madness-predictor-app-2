@@ -145,6 +145,24 @@ function finalUserInput(data, kenPomTeam1Input, kenPomTeam2Input) {
   if (kenPomTeam1 === "Saint Mary's") {
     kenPomTeam1 = "Saint Marys";
   }
+  if (kenPomTeam2 === "Uc San Diego") {
+    kenPomTeam2 = "UC San Diego";
+  }
+  if (kenPomTeam1 === "Uc San Diego") {
+    kenPomTeam1 = "UC San Diego";
+  }
+  if (kenPomTeam2 === "Unc Wilmington") {
+    kenPomTeam2 = "UNC Wilmington";
+  }
+  if (kenPomTeam1 === "Unc Wilmington") {
+    kenPomTeam1 = "UNC Wilmington";
+  }
+  if (kenPomTeam2 === "Siue") {
+    kenPomTeam2 = "SIUE";
+  }
+  if (kenPomTeam1 === "Siue") {
+    kenPomTeam1 = "SIUE";
+  }
 
   compareTeams(data, kenPomTeam1, kenPomTeam2);
 }
