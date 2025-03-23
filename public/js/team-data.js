@@ -21,7 +21,7 @@ const getTeamData = async () => {
   }
 };
 
-getTeamData();
+// getTeamData();
 
 const displayData = async () => {
   const payload = await getTeamData();
