@@ -623,7 +623,7 @@ function compareTeamsBK(data, brianKidd1, brianKidd2) {
   // }
   let differential = Math.abs(countTeam1 - countTeam2);
 
-  bkStatDifferential.innerHTML = `The final count for ${brianKidd1.team_name} is ${countTeam1}  and ${brianKidd2.team_name} is ${countTeam2}  The differential is ${differential}`;
+  bkStatDifferential.innerHTML = `The final count for ${brianKidd1.team_name} is ${countTeam1}  and ${brianKidd2.team_name} is ${countTeam2}  The stats category differential is ${differential}`;
 }
 // use forEach loop to show all the stats for both teams
 function showLoading() {
