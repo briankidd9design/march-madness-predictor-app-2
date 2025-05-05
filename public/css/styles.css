@@ -1,3 +1,6 @@
+html {
+  font-size: 100%;
+}
 :root {
   --color-basketball: rgb(191, 71, 27);
   --color-sky: #e5ffff;
@@ -130,6 +133,7 @@ h5 {
   color: var(--color-night-sky);
   border-radius: 5px;
   border-color: var(--color-night-sky);
+  transition: 0.5s;
 }
 #buttonKenPom:hover {
   background-color: var(--color-basketball);
@@ -225,6 +229,7 @@ h5 {
   border-radius: 5px;
   background-color: var(--color-basketball);
   border-color: var(--color-sky);
+  transition: 0.5s;
 }
 #buttonBrianKidd:hover {
   background-color: rgb(191, 71, 27, 0.5);
