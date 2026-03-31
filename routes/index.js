@@ -5,7 +5,10 @@ const router = express.Router();
 const needle = require("needle");
 
 // Env vars
-const API_BASE_URL = process.env.API_BASE_URL;
+// const API_BASE_URL = process.env.API_BASE_URL;
+const API_KEY = process.env.API_KEY;
+const SHEET_YEAR = process.env.SHEET_YEAR;
+const API_BASE_URL = `https://sheetdb.io/api/v1/${API_KEY}?sheet=${SHEET_YEAR}`;
 
 // change app.get to router.get
 // change/api to just /
@@ -15,6 +18,11 @@ router.get("/", async (req, res) => {
     const apiRes = await needle("get", `${API_BASE_URL}`);
     // console.log(apiRes);
     const data = apiRes.body;
+    // console.log(
+    //   "First team from SheetDB:",
+    //   data[0]?.team_name,
+    //   data[0]?.nat_rank,
+    // );
     res.status(200).json(data);
   } catch (error) {
     res.status(500).json({ error });

@@ -1,6 +1,6 @@
 // we change the api endpoint to the api found in the routes directory
 // var mykey = config.MY_KEY;
-const apiEndPoint = `/api`;
+const apiEndpoint = `/api`;
 
 // Fetching the data
 function displayData() {
@@ -13,11 +13,11 @@ function displayData() {
   }
   async function bkFormulaData() {
     try {
-      let response = await fetch(apiEndPoint);
+      let response = await fetch(apiEndpoint);
       let data = await response.json();
       if (!response.ok) {
         throw Error(
-          "Unsuccessful response. There was an issue fetching the data"
+          "Unsuccessful response. There was an issue fetching the data",
         );
       }
       await getUserInputBK(data);
@@ -58,9 +58,9 @@ class Team01 {
     hmct,
     daysoff,
     inj,
-    etest
+    etest,
   ) {
-    (this.name = name),
+    ((this.name = name),
       (this.natrank = nrnk),
       (this.confrank = cfrk),
       (this.pointPerG = ppg),
@@ -82,7 +82,7 @@ class Team01 {
       (this.homecourt = hmct),
       (this.daysoff = daysoff),
       (this.injuries = inj),
-      (this.eyetest = etest);
+      (this.eyetest = etest));
   }
 }
 class Team02 {
@@ -109,9 +109,9 @@ class Team02 {
     hmct,
     daysoff,
     inj,
-    etest
+    etest,
   ) {
-    (this.name = name),
+    ((this.name = name),
       (this.natrank = nrnk),
       (this.confrank = cfrk),
       (this.pointPerG = ppg),
@@ -133,7 +133,7 @@ class Team02 {
       (this.homecourt = hmct),
       (this.daysoff = daysoff),
       (this.injuries = inj),
-      (this.eyetest = etest);
+      (this.eyetest = etest));
   }
 }
 // Get user input and pass it to compareTeamsBK function.
@@ -235,6 +235,31 @@ function finalUserInputBK(data, brianKidd1Input, brianKidd2Input) {
   if (brianKidd2 === "Siue") {
     brianKidd2 = "SIUE";
   }
+  if (brianKidd1 === "Smu") {
+    brianKidd1 = "SMU";
+  }
+  if (brianKidd2 === "Smu") {
+    brianKidd2 = "SMU";
+  }
+  if (brianKidd1 === "Vcu") {
+    brianKidd1 = "VCU";
+  }
+  if (brianKidd2 === "Vcu") {
+    brianKidd2 = "VCU";
+  }
+  if (brianKidd1 === "Ucf") {
+    brianKidd1 = "UCF";
+  }
+  if (brianKidd2 === "Ucf") {
+    brianKidd2 = "UCF";
+  }
+  if (brianKidd1 === "Liu") {
+    brianKidd1 = "LIU";
+  }
+  if (brianKidd2 === "Liu") {
+    brianKidd2 = "LIU";
+  }
+
   compareTeamsBK(data, brianKidd1, brianKidd2);
 }
 // Button will initiate API call for basketball stats API data
@@ -249,7 +274,7 @@ function compareTeamsBK(data, brianKidd1, brianKidd2) {
   let bkDefensiveRating = document.getElementById("brianKiddDefensiveRating");
   let bkOffensiveRating = document.getElementById("brianKiddOffensiveRating");
   let bkScheduleDifficulty = document.getElementById(
-    "brianKiddScheduleDifficulty"
+    "brianKiddScheduleDifficulty",
   );
   let bkNationalRank = document.getElementById("brianKiddNationalRank");
   let bkConferenceRank = document.getElementById("brianKiddConferenceRank");
@@ -261,7 +286,7 @@ function compareTeamsBK(data, brianKidd1, brianKidd2) {
   let bkOppTurnovers = document.getElementById("brianKiddOppTurnovers");
   let bkThreesPerGame = document.getElementById("brianKiddThreesPerGame");
   let bkThreePointPerc = document.getElementById(
-    "brianKiddThreePointPercentage"
+    "brianKiddThreePointPercentage",
   );
   let bkThreesOppPerGame = document.getElementById("brianKiddOppThreesPerGame");
   let bkTwoPointPerc = document.getElementById("brianKiddTwoPointPercentage");
@@ -305,7 +330,7 @@ function compareTeamsBK(data, brianKidd1, brianKidd2) {
     brianKidd1.home_court_adv,
     brianKidd1.days_off,
     brianKidd1.injuries,
-    brianKidd1.eye_test
+    brianKidd1.eye_test,
   );
   //Team 2
   let T2 = new Team02(
@@ -331,18 +356,16 @@ function compareTeamsBK(data, brianKidd1, brianKidd2) {
     brianKidd2.home_court_adv,
     brianKidd2.days_off,
     brianKidd2.injuries,
-    brianKidd2.eye_test
+    brianKidd2.eye_test,
   );
   // check for user input that is not in the data and returns undefined.
   if (brianKidd1.team_name === undefined) {
-    document.getElementById(
-      "undefinedCompare"
-    ).innerHTML = `Your input ${brianKidd1} is not found. Please check your spelling and try again. You can also click on the data page of this site to see what teams are available to compare.`;
+    document.getElementById("undefinedCompare").innerHTML =
+      `Your input ${brianKidd1} is not found. Please check your spelling and try again. You can also click on the data page of this site to see what teams are available to compare.`;
   }
   if (brianKidd2.team_name === undefined) {
-    document.getElementById(
-      "undefinedCompare"
-    ).innerHTML = `Your input ${brianKidd2} is not found. Please check your spelling and try again. You can also click on the data page of this site to see what teams are available to compare.`;
+    document.getElementById("undefinedCompare").innerHTML =
+      `Your input ${brianKidd2} is not found. Please check your spelling and try again. You can also click on the data page of this site to see what teams are available to compare.`;
   }
 
   //////////////////////////////////////////////////////////////////////
@@ -466,7 +489,7 @@ function compareTeamsBK(data, brianKidd1, brianKidd2) {
   }
   // Offensive Rebounds Diff
   let offRbndsDiff = Math.abs(
-    T1.offensiveRebounds - T2.offensiveRebounds
+    T1.offensiveRebounds - T2.offensiveRebounds,
   ).toFixed(2);
 
   bkOffRebounds.innerHTML = `${T1.name} get ${T1.offensiveRebounds} offensive rebounds per game and ${T2.name} get ${T2.offensiveRebounds} offensive rebounds per game. The Differential is ${offRbndsDiff}`;
@@ -628,8 +651,7 @@ function compareTeamsBK(data, brianKidd1, brianKidd2) {
 // use forEach loop to show all the stats for both teams
 function showLoading() {
   if (brianKidd1.value.trim() !== "" || brianKidd2.value.trim() !== "") {
-    document.getElementById(
-      "loadingBKStatsData"
-    ).innerHTML = `Loading Basketball Data...`;
+    document.getElementById("loadingBKStatsData").innerHTML =
+      `Loading Basketball Data...`;
   }
 }

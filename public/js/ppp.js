@@ -25,7 +25,7 @@ function displayData() {
       let data = await response.json();
       if (!response.ok) {
         throw Error(
-          "Unsuccsessful response. There was an issue fetching the data."
+          "Unsuccsessful response. There was an issue fetching the data.",
         );
       }
       await getUserInput(data);
@@ -43,10 +43,10 @@ function displayData() {
 // Constructing each team object
 class Team1 {
   constructor(name, fga, orb, fta, trnovs, offsRating, defRating) {
-    (this.name = name),
+    ((this.name = name),
       (this.fieldGoalAttemps = fga),
       (this.offensiveRebounds = orb),
-      (this.freethrowAttempts = fta);
+      (this.freethrowAttempts = fta));
     this.turnovers = trnovs;
     this.offensiveRating = offsRating;
     this.defensiveRating = defRating;
@@ -54,10 +54,10 @@ class Team1 {
 }
 class Team2 {
   constructor(name, fga, orb, fta, trnovs, offsRating, defRating) {
-    (this.name = name),
+    ((this.name = name),
       (this.fieldGoalAttemps = fga),
       (this.offensiveRebounds = orb),
-      (this.freethrowAttempts = fta);
+      (this.freethrowAttempts = fta));
     this.turnovers = trnovs;
     this.offensiveRating = offsRating;
     this.defensiveRating = defRating;
@@ -163,6 +163,30 @@ function finalUserInput(data, kenPomTeam1Input, kenPomTeam2Input) {
   if (kenPomTeam1 === "Siue") {
     kenPomTeam1 = "SIUE";
   }
+  if (kenPomTeam1 === "Smu") {
+    kenPomTeam1 = "SMU";
+  }
+  if (kenPomTeam2 === "Smu") {
+    kenPomTeam2 = "SMU";
+  }
+  if (kenPomTeam1 === "Vcu") {
+    kenPomTeam1 = "VCU";
+  }
+  if (kenPomTeam2 === "Vcu") {
+    kenPomTeam2 = "VCU";
+  }
+  if (kenPomTeam1 === "Ucf") {
+    kenPomTeam1 = "UCF";
+  }
+  if (kenPomTeam2 === "Ucf") {
+    kenPomTeam2 = "UCF";
+  }
+  if (kenPomTeam1 === "Liu") {
+    kenPomTeam1 = "LIU";
+  }
+  if (kenPomTeam2 === "Liu") {
+    kenPomTeam2 = "LIU";
+  }
 
   compareTeams(data, kenPomTeam1, kenPomTeam2);
 }
@@ -207,7 +231,7 @@ function compareTeams(data, kenPomTeam1, kenPomTeam2) {
     kenPomTeam1.fta,
     kenPomTeam1.trnovs,
     kenPomTeam1.offsv_rating,
-    kenPomTeam1.def_rating
+    kenPomTeam1.def_rating,
   );
   //Team 2
   let T2 = new Team2(
@@ -217,19 +241,17 @@ function compareTeams(data, kenPomTeam1, kenPomTeam2) {
     kenPomTeam2.fta,
     kenPomTeam2.trnovs,
     kenPomTeam2.offsv_rating,
-    kenPomTeam2.def_rating
+    kenPomTeam2.def_rating,
   );
 
   // check for user input that is not in the data and returns undefined.
   if (kenPomTeam1.team_name === undefined) {
-    document.getElementById(
-      "undefinedPrediction"
-    ).innerHTML = `Your input ${kenPomTeam1} is not found. Please check your spelling and try again. You can also click on the data page of this site to see what teams are available to compare.`;
+    document.getElementById("undefinedPrediction").innerHTML =
+      `Your input ${kenPomTeam1} is not found. Please check your spelling and try again. You can also click on the data page of this site to see what teams are available to compare.`;
   }
   if (kenPomTeam2.team_name === undefined) {
-    document.getElementById(
-      "undefinedPrediction"
-    ).innerHTML = `Your input ${kenPomTeam2} is not found. Please check your spelling and try again. You can also click on the data page of this site to see what teams are available to compare.`;
+    document.getElementById("undefinedPrediction").innerHTML =
+      `Your input ${kenPomTeam2} is not found. Please check your spelling and try again. You can also click on the data page of this site to see what teams are available to compare.`;
   }
   // Push both results to an array and then take the data out of that array
 
@@ -239,7 +261,7 @@ function compareTeams(data, kenPomTeam1, kenPomTeam2) {
     parseFloat(T1.fieldGoalAttemps) -
       parseFloat(T1.offensiveRebounds) +
       (parseFloat(T1.turnovers) +
-        parseFloat(0.475 * parseFloat(T1.freethrowAttempts)))
+        parseFloat(0.475 * parseFloat(T1.freethrowAttempts))),
   ).toFixed(2);
   kenPomTeam1Pos.innerHTML = `${T1.name}'s number of posessions per game is ${poss}`;
 
@@ -247,7 +269,7 @@ function compareTeams(data, kenPomTeam1, kenPomTeam2) {
     parseFloat(T2.fieldGoalAttemps) -
       parseFloat(T2.offensiveRebounds) +
       (parseFloat(T2.turnovers) +
-        parseFloat(0.475 * parseFloat(T2.freethrowAttempts)))
+        parseFloat(0.475 * parseFloat(T2.freethrowAttempts))),
   ).toFixed(2);
   kenPomTeam2Pos.innerHTML = `${T2.name}'s number of posessions per game is ${poss2}`;
 
@@ -278,8 +300,7 @@ document.querySelector("#copyrightYear").innerText = new Date().getFullYear();
 
 function showLoading() {
   if (kenPom1.value.trim() !== "" || kenPom2.value.trim() !== "") {
-    document.getElementById(
-      "loadingKenPomData"
-    ).innerHTML = `Loading Basketball Data...`;
+    document.getElementById("loadingKenPomData").innerHTML =
+      `Loading Basketball Data...`;
   }
 }
